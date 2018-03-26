@@ -116,12 +116,6 @@ under the License.
 
    <dependencies>
       <dependency>
-         <groupId>org.apache.tomee</groupId>
-         <artifactId>javaee-api</artifactId>
-         <version>7.0-1</version>
-         <scope>provided</scope>
-      </dependency>
-      <dependency>
          <groupId>junit</groupId>
          <artifactId>junit</artifactId>
          <version>4.12</version>
@@ -153,20 +147,28 @@ under the License.
          <artifactId>shrinkwrap-descriptors-api-javaee</artifactId>
          <version>${version.shrinkwrap.descriptor}</version>
       </dependency>
-      <dependency>
-         <groupId>org.apache.tomee</groupId>
-         <artifactId>arquillian-tomee-embedded</artifactId>
-         <version>7.0.4</version>
-         <scope>test</scope>
-      </dependency>
    </dependencies>
 
    <profiles>
       <profile>
-         <id>tomee</id>
-         <build>
-
-         </build>
+         <id>tomee-embedded</id>
+         <activation>
+            <activeByDefault>true</activeByDefault>
+         </activation>
+         <dependencies>
+            <dependency>
+               <groupId>org.apache.tomee</groupId>
+               <artifactId>javaee-api</artifactId>
+               <version>7.0-1</version>
+               <scope>provided</scope>
+            </dependency>
+            <dependency>
+               <groupId>org.apache.tomee</groupId>
+               <artifactId>arquillian-tomee-embedded</artifactId>
+               <version>7.0.4</version>
+               <scope>test</scope>
+            </dependency>
+         </dependencies>
       </profile>
    </profiles>
 </project>
