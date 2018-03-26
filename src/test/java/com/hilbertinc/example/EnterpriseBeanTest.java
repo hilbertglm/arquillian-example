@@ -23,14 +23,18 @@ public class EnterpriseBeanTest {
 
    @Deployment
    public static WebArchive createDeployment() {
-      return ShrinkWrap.create(WebArchive.class, "EmbeddedTomEE.war")
+      WebArchive war = ShrinkWrap.create(WebArchive.class, "EmbeddedTomEE.war");
+      war
          .addClasses(SampleEnterpriseBean.class)
          .setWebXML(
             new StringAsset(
                Descriptors.create(WebAppDescriptor.class)
                   .version("3.0")
                   .exportAsString())
-         );
+         )
+         ;
+      System.out.println(war.toString(true));
+      return war;
    }
 
    @EJB SampleEnterpriseBean bean;
