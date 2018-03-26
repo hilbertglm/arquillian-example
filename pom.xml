@@ -109,9 +109,10 @@ under the License.
 
    <dependencies>
       <dependency>
-         <groupId>org.apache.openejb</groupId>
+         <groupId>org.apache.tomee</groupId>
          <artifactId>javaee-api</artifactId>
-         <version>6.0-6</version>
+         <version>7.0-1</version>
+         <scope>provided</scope>
       </dependency>
       <dependency>
          <groupId>junit</groupId>
