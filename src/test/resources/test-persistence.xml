@@ -4,8 +4,9 @@
              xsi:schemaLocation="
         http://java.sun.com/xml/ns/persistence
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-   <persistence-unit name="test-datasource">
+   <persistence-unit name="test-datasource" transaction-type="JTA">
       <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+      <jta-data-source>jdbc/test-datasource</jta-data-source>
       <exclude-unlisted-classes>false</exclude-unlisted-classes>
       <properties>
          <property name="javax.persistence.jdbc.driver"

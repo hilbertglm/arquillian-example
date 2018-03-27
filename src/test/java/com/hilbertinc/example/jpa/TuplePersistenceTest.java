@@ -18,6 +18,8 @@ import javax.transaction.UserTransaction;
 import java.util.List;
 
 /**
+ * This demonstrates testing JPA persistence with an injected user transaction
+ *
  * @author Gary Murphy
  * <p>
  * <p>Created: 3/27/18</p>
@@ -79,6 +81,11 @@ public class TuplePersistenceTest {
    public void get_tuple() throws Exception {
       List<TupleEntity> tuples = getEntityManager().createQuery("select tuple from TupleEntity tuple", TupleEntity.class).getResultList();
       Assert.assertFalse("Found tuples", tuples.isEmpty());
+      System.out.printf(
+         "+-----------------------------------------------------------------\n" +
+         "| Name: %s Value: %s\n" +
+         "+-----------------------------------------------------------------\n",
+         tuples.get(0).getName(), tuples.get(0).getValue());
    }
 
    private EntityManager getEntityManager() {
