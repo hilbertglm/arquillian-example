@@ -44,6 +44,23 @@ under the License.
       <maven.compiler.source>1.7</maven.compiler.source>
       <maven.compiler.target>1.7</maven.compiler.target>
 
+      <version.junit>4.12</version.junit>
+
+      <!-- [Start Versioned Set]
+         These have versioning interdependencies with must match, or the test will fail with an error that is
+         difficult to determine the root cause:
+
+          * The tomee.api major version must match the tomee.embedded major version, since those define the
+            JavaEE API in use. It is not upward compatible
+          * Eclipselink must match the version that goes with TomEE, or there will be a javax.persistence signing
+            exception. The way I determined the match was to install TomEE and look in lib directory for Eclipselink
+      -->
+      <version.tomee.api>7.0-1</version.tomee.api>
+      <version.tomee.embedded>7.0.4</version.tomee.embedded>
+      <version.eclipselink>2.6.4</version.eclipselink>
+      <!-- [End Versioned Set] -->
+
+
       <version.arquillian>1.1.13.Final</version.arquillian>
       <version.shrinkwrap.descriptor>2.0.0</version.shrinkwrap.descriptor>
       <version.shrinkwrap.resolver>2.0.0</version.shrinkwrap.resolver>
@@ -118,7 +135,7 @@ under the License.
       <dependency>
          <groupId>junit</groupId>
          <artifactId>junit</artifactId>
-         <version>4.12</version>
+         <version>${version.junit}</version>
       </dependency>
       <dependency>
          <groupId>org.jboss.arquillian.junit</groupId>
@@ -159,19 +176,19 @@ under the License.
             <dependency>
                <groupId>org.apache.tomee</groupId>
                <artifactId>javaee-api</artifactId>
-               <version>7.0-1</version>
+               <version>${version.tomee.api}</version>
                <scope>provided</scope>
             </dependency>
             <dependency>
                <groupId>org.apache.tomee</groupId>
                <artifactId>arquillian-tomee-embedded</artifactId>
-               <version>7.0.4</version>
+               <version>${version.tomee.embedded}</version>
                <scope>test</scope>
             </dependency>
             <dependency>
                <groupId>org.eclipse.persistence</groupId>
                <artifactId>eclipselink</artifactId>
-               <version>2.6.4</version>
+               <version>${version.eclipselink}</version>
             </dependency>
          </dependencies>
       </profile>
