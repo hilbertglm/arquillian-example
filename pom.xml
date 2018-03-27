@@ -168,6 +168,11 @@ under the License.
                <version>7.0.4</version>
                <scope>test</scope>
             </dependency>
+            <dependency>
+               <groupId>org.eclipse.persistence</groupId>
+               <artifactId>eclipselink</artifactId>
+               <version>2.6.4</version>
+            </dependency>
          </dependencies>
       </profile>
    </profiles>
