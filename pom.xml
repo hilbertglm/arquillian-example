@@ -23,7 +23,7 @@ under the License.
    <!-- for more information, see the documentation of this POM: http://maven.apache.org/pom/asf/ -->
    <groupId>com.hilbertinc.example</groupId>
    <artifactId>arquillian-pom</artifactId>
-   <version>7.0.4-SNAPSHOT</version>
+   <version>8.0-SNAPSHOT</version>
    <packaging>war</packaging>
 
    <name>Arquillian Tests for TomEE</name>
@@ -41,8 +41,8 @@ under the License.
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-      <maven.compiler.source>1.7</maven.compiler.source>
-      <maven.compiler.target>1.7</maven.compiler.target>
+      <maven.compiler.source>8</maven.compiler.source>
+      <maven.compiler.target>8</maven.compiler.target>
 
       <version.junit>4.12</version.junit>
 
@@ -55,13 +55,13 @@ under the License.
           * Eclipselink must match the version that goes with TomEE, or there will be a javax.persistence signing
             exception. The way I determined the match was to install TomEE and look in lib directory for Eclipselink
       -->
-      <version.tomee.api>7.0-1</version.tomee.api>
-      <version.tomee.embedded>7.0.4</version.tomee.embedded>
+      <version.tomee.api>8.0-2</version.tomee.api>
+      <version.tomee.embedded>8.0.0</version.tomee.embedded>
       <version.eclipselink>2.6.4</version.eclipselink>
       <!-- [End Versioned Set] -->
 
 
-      <version.arquillian>1.1.13.Final</version.arquillian>
+      <version.arquillian>1.4.1.Final</version.arquillian>
       <version.shrinkwrap.descriptor>2.0.0</version.shrinkwrap.descriptor>
       <version.shrinkwrap.resolver>2.0.0</version.shrinkwrap.resolver>
 
@@ -104,6 +104,9 @@ under the License.
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-surefire-plugin</artifactId>
                <version>${version.maven.surefire}</version>
+               <configuration>
+                  <argLine>-Djdk.attach.allowAttachSelf=true</argLine>
+               </configuration>
             </plugin>
          </plugins>
       </pluginManagement>
