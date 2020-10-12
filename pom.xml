@@ -44,7 +44,7 @@ under the License.
       <maven.compiler.source>1.7</maven.compiler.source>
       <maven.compiler.target>1.7</maven.compiler.target>
 
-      <version.junit>4.12</version.junit>
+      <version.junit>4.13.1</version.junit>
 
       <!-- [Start Versioned Set]
          These have versioning interdependencies with must match, or the test will fail with an error that is
